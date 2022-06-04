@@ -10,7 +10,6 @@ public class VerificationPage {
     private SelenideElement codeField = $("[data-test-id=code] input");
     private SelenideElement verifyButton = $("[data-test-id=action-verify]");
 
-    //конструктор, вызывает проверку, что страница существует (Н: проверка нужна, если страница долго загружается)
     public VerificationPage() {
         codeField.shouldBe(Condition.visible);
     }
