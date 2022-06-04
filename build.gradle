@@ -1,11 +1,13 @@
 plugins {
     id 'java'
+    id 'io.freefair.lombok' version '5.3.0'
 }
 
 group 'ru.netology'
 version '1.0-SNAPSHOT'
 
 // кодировка файлов (если используете русский язык в файлах)
+sourceCompatibility = 11
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 
@@ -14,24 +16,11 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.projectlombok:lombok:1.18.20'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
     testImplementation 'com.codeborne:selenide:5.19.0'
-
-//    testImplementation 'org.junit.vintage:junit-vintage-engine:5.8.2'
-//    testImplementation 'io.cucumber:cucumber-java:7.1.0'
-//    implementation 'com.github.javafaker:javafaker:1.0.2'       //подключение faker
-//    implementation: 'org.slf4j:slf4j-simple:1.7.32'
-
-    compileOnly 'org.projectlombok:1.18.20'
-
-    compileOnly 'org.projectlombok:lombok:1.18.24'
-    annotationProcessor 'org.projectlombok:lombok:1.18.24'
-
-    testCompileOnly 'org.projectlombok:lombok:1.18.24'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
-
-//    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.36'
+    testImplementation 'com.github.javafaker:javafaker:1.0.2'
+    testImplementation 'io.rest-assured:rest-assured:4.3.3'
+    //testImplementation 'com.google.code.gson:gson:2.8.6'
 }
 
 test {
