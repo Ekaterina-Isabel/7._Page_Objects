@@ -8,8 +8,6 @@ import ru.netology.page.LoginPage;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-
 
 public class MoneyTransferTest {
 
@@ -73,28 +71,6 @@ public class MoneyTransferTest {
 
         var transferPage = dashboardPage.selectCardToTransfer(secondNumber);
         transferPage.makeTransfer(String.valueOf(amount), firstNumber);
-
-        assertNull(transferPage.errorMessage());
-    }
-
-    @Test
-    void shouldMakeNegativeAmountAfterTransfer() {
-        var dashboardPage = new DashboardPage();
-        var firstNumber = DataHelper.getSecondNumber();
-        var secondNumber = DataHelper.getFirstNumber();
-        int amount = 20_000;
-
-        var expectedBalanceFirstCard = dashboardPage.getCardBalance(firstNumber) - amount;
-        var expectedBalanceSecondCard = dashboardPage.getCardBalance(secondNumber) + amount;
-
-        var transferPage = dashboardPage.selectCardToTransfer(secondNumber);
-        dashboardPage = transferPage.makeTransfer(String.valueOf(amount), firstNumber);
-
-        var actualBalanceFirstCard = dashboardPage.getCardBalance(firstNumber);
-        var actualBalanceSecondCard = dashboardPage.getCardBalance(secondNumber);
-
-        assertEquals(expectedBalanceFirstCard, actualBalanceFirstCard);
-        assertEquals(expectedBalanceSecondCard, actualBalanceSecondCard);
     }
 }
 

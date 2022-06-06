@@ -1,6 +1,5 @@
 package ru.netology.page;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.data.DataHelper;
 
@@ -25,10 +24,5 @@ public class TransferPage {
         fromInput.setValue(cardInfo.getCardNumber());
         transferButton.click();
         return new DashboardPage();
-    }
-
-    public DashboardPage errorMessage() {
-        notification.shouldHave(Condition.text("Произошла ошибка"));
-        return null;
     }
 }
