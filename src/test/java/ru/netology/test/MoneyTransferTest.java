@@ -71,6 +71,7 @@ public class MoneyTransferTest {
 
         var transferPage = dashboardPage.selectCardToTransfer(secondNumber);
         transferPage.makeTransfer(String.valueOf(amount), firstNumber);
+
+        transferPage.errorMessage();
     }
 }
-
